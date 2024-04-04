@@ -1,0 +1,70 @@
+.ms-container {
+    position: relative;
+    height: 100vh;
+    background-image: linear-gradient(#009688 0px, #009688 15%, #d9dbd4 0px, #d9dbd4 85%);
+
+}
+
+.ms-container-central {
+    margin: 0 auto;
+    width: 80%;
+    height: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.circle img {
+    width: 100%;
+
+}
+
+
+
+/* BACKGROUND */
+/* BG-LEFT*/
+
+.left {
+    background: white;
+    height: 100%;
+    width: 30%;
+    overflow-y: auto;
+
+}
+
+.ms-bg-head-left {
+    background: #eaeaea;
+    min-height: 60px
+}
+
+.bg-not {
+    background: #8edafc;
+}
+
+/* CONTACT LEFT */
+
+
+/* RIGHT */
+.right {
+    height: 100%;
+    width: 70%
+}
+
+.ms-main {
+    background-image: url(../img/mine.jpg);
+    flex-grow: 1;
+
+}
+
+.ms-bottom {
+    background-color: red;
+}
