@@ -51,54 +51,16 @@
                         <input type="text" placeholder="cerca una nuova chat" class="ms-5 border-0">
                     </div>
                     <div class="list-of-contact overflow-y-auto ">
-                        <div class="contact d-flex ms-4 mb-3 ">
+                        <div class="contact d-flex ms-4 mb-3 " v-for="user in contacts">
                             <div class="image circle ">
-                                <img src="./img/avatar_1.jpg" alt="">
+                                <img :src="'./img/avatar' + user.avatar + '.jpg'" alt="icon-user">
                             </div>
                             <div class="name-of-contact ms-2">
-                                Michele
+                                <div class="text-dark">{{user.name}}</div>
+                                <div class="small text-muted "> ultimo messaggio inviato</div>
                             </div>
                         </div>
-                        <div class="contact d-flex ms-4 mb-3">
-                            <div class="image circle ">
-                                <img src="./img/avatar_1.jpg" alt="">
-                            </div>
-                            <div class="name-of-contact ms-2">
-                                Michele
-                            </div>
-                        </div>
-                        <div class="contact d-flex ms-4  mb-3 ">
-                            <div class="image circle ">
-                                <img src="./img/avatar_1.jpg" alt="">
-                            </div>
-                            <div class="name-of-contact ms-2">
-                                Michele
-                            </div>
-                        </div>
-                        <div class="contact d-flex ms-4  mb-3">
-                            <div class="image circle ">
-                                <img src="./img/avatar_1.jpg" alt="">
-                            </div>
-                            <div class="name-of-contact ms-2">
-                                Michele
-                            </div>
-                        </div>
-                        <div class="contact d-flex ms-4  mb-3 ">
-                            <div class="image circle ">
-                                <img src="./img/avatar_1.jpg" alt="">
-                            </div>
-                            <div class="name-of-contact ms-2">
-                                Michele
-                            </div>
-                        </div>
-                        <div class="contact d-flex ms-4  mb-3 ">
-                            <div class="image circle ">
-                                <img src="./img/avatar_1.jpg" alt="">
-                            </div>
-                            <div class="name-of-contact ms-2">
-                                Michele
-                            </div>
-                        </div>
+
 
                     </div>
 
