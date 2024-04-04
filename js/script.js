@@ -97,13 +97,48 @@ createApp({
         ],
       },
       ],
-      activeUser: 0
+      activeUser: 0,
+      newTextMessage: ''
     };
   },
   methods: {
     selectUser: function (index) {
       this.activeUser = index
 
+    },
+    // funzione per creare nuovo messaggio 
+    newMessage: function () {
+      var date = new Date(); // Oggetto Date corrente
+      var dateString = ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear() + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2) + ':' + ('0' + date.getSeconds()).slice(-2);
+
+      const newMessage = {
+        date: dateString,
+        status: 'sent',
+        message: this.newTextMessage,
+
+      }
+      this.contacts[this.activeUser].messages.push(newMessage)
+      this.newTextMessage = ''
+      setTimeout(this.newBotMessage, 1000)
+
+
+
+
+    },
+    // funzione per creare una risposta
+    newBotMessage: function () {
+      var date = new Date(); // Oggetto Date corrente
+      var dateString = ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear() + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2) + ':' + ('0' + date.getSeconds()).slice(-2);
+
+      const newMessage = {
+        date: dateString,
+        status: 'received',
+        message: 'ok',
+
+      }
+      this.contacts[this.activeUser].messages.push(newMessage)
+
     }
+
   }
 }).mount('#app');
