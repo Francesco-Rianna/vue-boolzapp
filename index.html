@@ -51,7 +51,8 @@
                         <input type="text" placeholder="cerca una nuova chat" class="ms-5 border-0">
                     </div>
                     <div class="list-of-contact overflow-y-auto ">
-                        <div class="contact d-flex ms-4 mb-3 " v-for="user in contacts">
+                        <div class="contact d-flex ms-4 mb-3 " v-for="user , index in contacts"
+                            @click="selectUser(index)">
                             <div class="image circle ">
                                 <img :src="'./img/avatar' + user.avatar + '.jpg'" alt="icon-user">
                             </div>
@@ -66,7 +67,7 @@
 
                 </div>
                 <div class="right d-flex flex-column">
-                    <div class="ms-bg-head-left d-flex justify-content-between py-2 px-2">
+                    <div class="ms-bg-head-left d-flex justify-content-between py-2 px-2 align-items-center">
                         <div class="image d-flex">
                             <div class="circle">
                                 <img src="./img/avatar_1.jpg" alt="">
@@ -80,11 +81,15 @@
                                 </div>
                             </div>
                         </div>
-                        <div>ciao</div>
+                        <div class="d-flex gap-2 fs-5">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i class="fa-solid fa-paperclip"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
 
                     </div>
                     <div class="ms-main">
-                        <div class="user-msg d-flex justify-content-end me-3 p-3">
+                        <!-- <div class="user-msg d-flex justify-content-end me-3 p-3">
                             <div class="text-msg px-2">
                                 ciao
                                 <div class="date">ok</div>
@@ -94,8 +99,18 @@
                         <div class="bot-msg ms-2 p-3">
                             <div class="text-msg px-2">ciao <div class="date">ok</div>
                             </div>
+                        </div> -->
+                        <div class="me-3 p-3   " v-for="message in contacts[activeUser].messages" :class="{
+                                'user-msg': message.status == 'sent',
+                                'bot-msg': message.status =='received'
+                            }">
+                            <div class="text-msg px-2 py-1">{{message.message}}
+                                <div class="date small px-2 py-1">{{message.date}}</div>
+                            </div>
 
                         </div>
+
+
 
                     </div>
                     <div class="ms-bottom justify-content-around d-flex p-3">

@@ -67,6 +67,7 @@
 .ms-main {
     background-image: url(../img/mine.jpg);
     flex-grow: 1;
+    overflow-y: auto;
 
 }
 
@@ -79,10 +80,21 @@
 }
 
 /* MSG */
+/* .user-msg {
+    text-align: right;
+} */
+.user-msg {
+    display: flex;
+    justify-content: end;
+}
+
 .user-msg .text-msg {
     border-radius: 10px;
     width: 260px;
     background-color: greenyellow;
+
+
+
 
 
 }
@@ -91,6 +103,8 @@
     border-radius: 10px;
     width: 260px;
     background: white;
+
+
 }
 
 .date {
