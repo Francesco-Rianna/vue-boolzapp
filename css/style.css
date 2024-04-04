@@ -46,8 +46,13 @@
     min-height: 60px
 }
 
-.bg-not {
+.ms-bg-not {
     background: #8edafc;
+}
+
+.ms-bg-white {
+    background: white;
+    color: #8fdafc;
 }
 
 /* CONTACT LEFT */
@@ -66,5 +71,9 @@
 }
 
 .ms-bottom {
-    background-color: red;
+    background-color: white;
+}
+
+.ms-bottom input {
+    width: 80%;
 }
