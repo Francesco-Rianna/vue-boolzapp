@@ -77,3 +77,22 @@
 .ms-bottom input {
     width: 80%;
 }
+
+/* MSG */
+.user-msg .text-msg {
+    border-radius: 10px;
+    width: 260px;
+    background-color: greenyellow;
+
+
+}
+
+.bot-msg .text-msg {
+    border-radius: 10px;
+    width: 260px;
+    background: white;
+}
+
+.date {
+    text-align: right;
+}
