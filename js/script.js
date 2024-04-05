@@ -55,7 +55,7 @@ createApp({
         {
           date: '20/03/2020 16:35:00',
           message: 'Mi piacerebbe ma devo andare a fare la spesa.',
-          status: 'received'
+          status: 'sent'
         }
         ],
       },
@@ -98,7 +98,8 @@ createApp({
       },
       ],
       activeUser: 0,
-      newTextMessage: ''
+      newTextMessage: '',
+      searchUser: ''
     };
   },
   methods: {
@@ -121,9 +122,6 @@ createApp({
       this.newTextMessage = ''
       setTimeout(this.newBotMessage, 1000)
 
-
-
-
     },
     // funzione per creare una risposta
     newBotMessage: function () {
@@ -138,7 +136,24 @@ createApp({
       }
       this.contacts[this.activeUser].messages.push(newMessage)
 
+    },
+    // funzione che serve per filtrare nella ricerca degli utenti 
+    findUtent: function () {
+      const searchTerm = this.searchUser.toLowerCase(); //utilizzo il lowercase perchè fa si che quando l'utente cerca non ci sia distinzione tra le minuscole e maiuscole 
+
+      this.contacts.forEach((contact, index) => {
+        // controllo se il nome include la stringa inserita dall'utente 
+        if (this.contacts[index].name.toLowerCase().includes(searchTerm)) {
+          this.contacts[index].visible = true;
+        } else {
+
+          this.contacts[index].visible = false;
+        }
+      });
     }
 
   }
 }).mount('#app');
+
+
+
