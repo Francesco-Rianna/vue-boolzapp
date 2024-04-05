@@ -92,11 +92,6 @@
     border-radius: 10px;
     width: 260px;
     background-color: greenyellow;
-
-
-
-
-
 }
 
 .bot-msg .text-msg {
@@ -109,4 +104,8 @@
 
 .date {
     text-align: right;
+}
+
+.selected {
+    background: lightgray;
 }

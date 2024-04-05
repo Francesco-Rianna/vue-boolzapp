@@ -52,12 +52,12 @@
                     </div>
                     <div class="list-of-contact overflow-y-auto ">
                         <div class="contact d-flex ms-4 mb-3 " v-for="user , index in contacts"
-                            @click="selectUser(index)">
+                            @click="selectUser(index)" :class="{selected: activeUser===index}">
                             <div class="image circle ">
                                 <img :src="'./img/avatar' + user.avatar + '.jpg'" alt="icon-user">
                             </div>
-                            <div class="name-of-contact ms-2">
-                                <div class="text-dark">{{user.name}}</div>
+                            <div class="name-of-contact ms-2 ">
+                                <div class="text-dark  ">{{user.name}}</div>
                                 <div class="small text-muted "> ultimo messaggio inviato</div>
                             </div>
                         </div>
@@ -68,26 +68,29 @@
                 </div>
                 <div class="right d-flex flex-column">
                     <div class="ms-bg-head-left d-flex justify-content-between py-2 px-2 align-items-center">
-                        <div class="image d-flex">
-                            <div class="circle">
-                                <img src="./img/avatar_1.jpg" alt="">
-                            </div>
-                            <div class=" ms-2">
-                                <div class="name">
-                                    Michele
+                        <template v-for="contact, index in contacts">
+                            <div class="image d-flex" v-if="activeUser === index">
+                                <div class="circle">
+                                    <img :src="'./img/avatar' + contact.avatar + '.jpg'" alt="icon-user">
                                 </div>
-                                <div>
-                                    Ultimo accesso oggi alle
+                                <div class="ms-2">
+                                    <div class="name">
+                                        {{ contact.name }}
+                                    </div>
+                                    <div>
+                                        Ultimo accesso oggi alle 12:00
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </template>
+
                         <div class="d-flex gap-2 fs-5">
                             <i class="fa-solid fa-magnifying-glass"></i>
                             <i class="fa-solid fa-paperclip"></i>
                             <i class="fa-solid fa-ellipsis-vertical"></i>
                         </div>
-
                     </div>
+
                     <div class="ms-main">
                         <!-- <div class="user-msg d-flex justify-content-end me-3 p-3">
                             <div class="text-msg px-2">
